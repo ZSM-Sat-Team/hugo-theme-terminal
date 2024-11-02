@@ -18,10 +18,12 @@
   {{ $styles := . | minify | fingerprint }}
   <link rel="stylesheet" href="{{ $styles.Permalink }}">
 {{ end }}
+
 <!-- Custom Terminal.css styles -->
 {{ if (fileExists "static/terminal.css") -}}
   <link rel="stylesheet" href="{{ "terminal.css" | absURL }}">
 {{- end }}
+
 <!-- Custom CSS to override theme properties (/static/style.css) -->
 {{ if (fileExists "static/style.css") -}}
   <link rel="stylesheet" href="{{ "style.css" | absURL }}">
@@ -74,6 +76,32 @@
 {{ with .OutputFormats.Get "json" }}
   <link href="{{ .RelPermalink }}" rel="alternate" type="application/json" title="{{ $.Site.Title }}" />
 {{ end }}
+
+<!-- Language selector -->
+<script>
+	window.onload = function() {
+		const languageLabels = document.querySelectorAll(".language-label");
+
+		const currentLanguage = localStorage.getItem("selected-language") || "en-US";
+
+		for (const label of languageLabels) {
+			label.addEventListener("click", function() {
+				localStorage.setItem("selected-language", label.dataset.languagecode);
+			});
+		}
+
+		const pathNames = {
+			"pl-PL": "/pl/",
+			"de-DE": "/de/",
+			"en-US": "/en/"
+		};
+
+		console.log("{{ .Site.Language.LanguageCode }}", currentLanguage);
+
+		if ("{{ .Site.Language.LanguageCode }}" !== currentLanguage)
+			return window.location.replace(`${window.location.protocol}//${window.location.host}${pathNames[currentLanguage]}${window.location.pathname.split("/").slice(2).join("/")}`);
+	}
+</script>
 
 <!-- Extended head section-->
 {{ partial "extended_head.html" . }}
