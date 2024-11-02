@@ -1,10 +1,10 @@
 :root {
-  --background: #1a170f;
-  --foreground: #eceae5;
-  --accent: #eec35e;
+  --background: #0f050c;
+  --foreground: #ebebeb;
+  --accent: #c05299;
   --font-size: 1rem;
   --line-height: 1.54rem;
-  --radius: 0;
+  --radius: 0px;
 }
 
 html {
@@ -12,8 +12,8 @@ html {
 }
 
 *,
-*::before,
-*::after {
+*:before,
+*:after {
   box-sizing: inherit;
   margin: 0;
   padding: 0;
@@ -22,22 +22,17 @@ html {
 body {
   margin: 0;
   padding: 0;
-  font-family:
-    "Fira Code",
-    Monaco,
-    Consolas,
-     "Ubuntu Mono",
-    monospace;
+  font-family: "Fira Code", Monaco, Consolas, "Ubuntu Mono", monospace;
   font-size: 1rem;
   font-weight: 400;
   line-height: var(--line-height);
   letter-spacing: -0.02em;
   background-color: var(--background);
   color: var(--foreground);
-  text-rendering: optimizelegibility;
+  text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
-  text-size-adjust: 100%;
+  -webkit-text-size-adjust: 100%;
 }
 
 ::placeholder {
@@ -254,7 +249,7 @@ kbd {
     "Fira Code",
     Monaco,
     Consolas,
-    "Ubuntu Mono",
+    Ubuntu Mono,
     monospace !important;
   font-feature-settings: normal;
   background: color-mix(in srgb, var(--foreground) 5%, transparent);
@@ -329,7 +324,7 @@ blockquote {
   padding: 25px;
 }
 
-blockquote::before {
+blockquote:before {
   content: ">";
   display: block;
   position: absolute;
@@ -371,3 +366,4 @@ hr {
   background: var(--accent);
   height: 2px;
 }
+
