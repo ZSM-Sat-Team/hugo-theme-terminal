@@ -1,7 +1,10 @@
 .footer {
+  display: flex;
+  flex-direction: column;
   padding: 40px 0;
   flex-grow: 0;
   opacity: 0.5;
+  gap: 10px;
 }
 
 .footer__inner {

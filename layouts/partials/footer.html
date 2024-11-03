@@ -10,6 +10,8 @@
       <span>:: <a href="https://github.com/panr/hugo-theme-terminal" target="_blank">Theme</a> made by <a href="https://github.com/panr" target="_blank">panr</a></span>
       </div>
   </div>
+  <!-- Extended footer section-->
+  {{ partial "extended_footer.html" . }}
 </footer>
 
 {{ $menu := resources.Get "js/menu.js" | js.Build }}
@@ -18,6 +20,3 @@
 {{ $bundle := slice $menu $prism | resources.Concat "bundle.js" | resources.Minify }}
 
 <script type="text/javascript" src="{{ $bundle.RelPermalink }}"></script>
-
-<!-- Extended footer section-->
-{{ partial "extended_footer.html" . }}
