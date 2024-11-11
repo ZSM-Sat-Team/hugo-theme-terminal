@@ -205,6 +205,26 @@ img {
   overflow: hidden;
 }
 
+.figure-container {
+    margin: calc(var(--line-height) * 1.2) 0;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-content: center;
+    gap: 10px;
+}
+.figure-container > figure {
+    align-self: center;
+    justify-self: center;
+}
+
+@media (max-width: 900px) {
+    .figure-container {
+        justify-content: center;
+    }
+}
+
 figure img,
 figure video {
   margin: 0;

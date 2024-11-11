@@ -75,6 +75,13 @@
   overflow: hidden;
 }
 
+.next > span, .prev > span {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .next .button__icon {
   margin-left: 8px;
 }
